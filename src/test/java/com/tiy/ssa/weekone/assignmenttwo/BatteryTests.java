@@ -32,7 +32,7 @@ public class BatteryTests {
 		assertEquals("", 300, new Battery(100F).howLongToDischarge(100F, 20F), 0);
 		// Expect 345 (minutes), given battery at capacity 23kWh discharging at a rate of 4kw/h
 		assertEquals("", 345, new Battery(100F).howLongToDischarge(23F, 4F), 0);
-		// Expect 186.66 (minutes),  
+		// Expect 186.66 (minutes), given battery at capacity 56kWh discharging at a rate of 18kw/h 
 		assertEquals("", 186.66, new Battery(100F).howLongToDischarge(56F, 18F), 0.01);
 	}
 
