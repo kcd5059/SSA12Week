@@ -19,5 +19,10 @@ public class MaybePalindromeTests {
 		assertEquals(false, new MaybePalindrome("ab").isPalindrome());
 		assertEquals(false, new MaybePalindrome("abc").isPalindrome());
 	}
-
+	
+	@Test
+	public void reportResultTests() {
+		assertEquals("racecar is a palindrome.", new MaybePalindrome("racecar").reportResult());
+		assertEquals("kitty is not a palindrome.", new MaybePalindrome("kitty").reportResult());
+	}
 }

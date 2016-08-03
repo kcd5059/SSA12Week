@@ -3,7 +3,6 @@ package com.tiy.ssa.weekone.assignmentthree;
 public class MaybePalindrome {
 	
 	public String str;
-	boolean pal = true;
 	
 	public MaybePalindrome(String str) {
 		this.str = str;
@@ -18,17 +17,17 @@ public class MaybePalindrome {
 			
 			// If the character at left index is equal to the right index, set pal to false
 			if (chars[i - 1] != chars[chars.length - i]) {
-				pal = false;
+			return false;
 			}
 		}
-		return pal;
+		return true;
 	}
 	
-	public void reportResult() {
-		if (pal == true) {
-			System.out.println(str + " is a palindrome.");
+	public String reportResult() {
+		if (isPalindrome()) {
+			return str + " is a palindrome.";
 		} else {
-			System.out.println(str + " is NOT a palindrome.");
+			return str + " is not a palindrome.";
 		}
 	}
 }
