@@ -10,30 +10,30 @@ public class BatteryTests {
 	public void dischargeBatteryTest() {
 		
 		// Check to ensure subtraction completes if result is valid
-		assertEquals("", 75F, new Battery(100F).dischargeBattery(25F), 0);
+		assertEquals("", 75F, new Battery(100F).discharge(25F), 0);
 		// Check to ensure that conditional statement functions (and prevents over discharge)
-		assertEquals("", 0F, new Battery(100F).dischargeBattery(101F), 0);
+		assertEquals("", 0F, new Battery(100F).discharge(101F), 0);
 	}
 	
 	@Test
 	public void chargeBatteryTest() {
 		// Check to ensure that addition completes if result is valid
-		assertEquals("", 100F, new Battery(100F).chargeBattery(25F, 75F), 0);
+		assertEquals("", 100F, new Battery(100F).charge(25F), 0);
 		// Check to ensure that condition statement functions (and prevents over charge)
-		assertEquals("" , 100F, new Battery(100F).chargeBattery(26F, 75F), 0);
+		assertEquals("" , 100F, new Battery(100F).charge(26F), 0);
 	}
 	
 	@Test
 	public void howLongToDischarge() {
-		
-		// Expect 6000 (minutes), given battery at capacity 100kWh discharging at a rate of 1kw/h
-		assertEquals("", 6000, new Battery(100F).howLongToDischarge(100F, 1F), 0);
-		// Expect 300 (minutes), given battery at capacity 100kWh discharging at a rate of 20kw/h
-		assertEquals("", 300, new Battery(100F).howLongToDischarge(100F, 20F), 0);
-		// Expect 345 (minutes), given battery at capacity 23kWh discharging at a rate of 4kw/h
-		assertEquals("", 345, new Battery(100F).howLongToDischarge(23F, 4F), 0);
-		// Expect 186.66 (minutes), given battery at capacity 56kWh discharging at a rate of 18kw/h 
-		assertEquals("", 186.66, new Battery(100F).howLongToDischarge(56F, 18F), 0.01);
+		//Create new instance of Battery with a charge of 100F, called b
+		Battery b = new Battery(100f);
+		assertEquals(100 * 60, b.howLongToDischarge(1F));
+		assertEquals(50f, b.discharge(50f), 0);
+		assertEquals(50 * 60, b.howLongToDischarge(1F));
+		assertEquals(23F, b.discharge(77F), 0);
+		assertEquals(345, b.howLongToDischarge(4F), 0);
+		assertEquals(56F, b.charge(33F), 0);
+		assertEquals(186, b.howLongToDischarge(18F), 0);
 	}
 
 }

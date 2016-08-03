@@ -12,7 +12,7 @@ public class Battery {
 		this.leftOver = capacity;
 	}
 	
-	float dischargeBattery(float desiredDischarge) {
+	public float discharge(float desiredDischarge) {
 		
 		// Discharge battery while preventing complete discharge
 		if ( (capacity - desiredDischarge) > 0 ) {
@@ -20,7 +20,7 @@ public class Battery {
 		} else return leftOver = 0;
 	}
 	
-	float chargeBattery(float leftOver, float desiredCharge) {
+	public float charge(float desiredCharge) {
 		// Charge battery while preventing over charge
 		if ( (leftOver + desiredCharge) <= capacity ) {
 			return leftOver += desiredCharge;
@@ -28,8 +28,16 @@ public class Battery {
 	}
 	
 	// Return (in minutes) time till complete discharge, given current charge (leftOver) and discharge rate (power)
-	float howLongToDischarge(float leftOver, float power) {
-		return (leftOver / power) * 60;
+	public int howLongToDischarge(float power) {
+		return (int) ((leftOver / power) * 60);
+	}
+	
+	public float getCapacity() {
+		return this.capacity;
+	}
+	
+	public float getLeftOver() {
+		return this.leftOver;
 	}
 	
 }
