@@ -1,64 +1,52 @@
 package com.tiy.ssa.weekone.assignmentfour;
+import java.util.ArrayList;
 
 public class Knight {
 	
-	final int startXPosition;
-	final int startYPosition;
-	int currentX;
-	int currentY;
-	int moves = 0;
+	final Location home;
+	Location current;
+	ArrayList<Location> positions = new ArrayList<Location>();
 	
 
-	public Knight(int startXPosition, int startYPosition) {
-		this.startXPosition = startXPosition;
-		this.startYPosition = startYPosition;
+	public Knight(Location home) {
+		this.current = this.home = home;
 	}
 	
 	
-	void move(){
+	public Location move(){
 		
-		//int random = (int) Math.random() * 8 + 1;
-		int random = 1;
-		
-		switch(random) {
-		case 1: currentX += 2;
-		        currentY += 1;
-		        break;
-		case 2: currentX += 2;
-		        currentY -= 1;
-		        break;
-		case 3: currentX += 1;
-		        currentY += 2;
-		        break;
-		case 4: currentX += 1;
-		        currentY -= 2;
-		        break;
-		case 5: currentX -= 2;
-		        currentY += 1;
-		        break;
-		case 6: currentX -= 2;
-		        currentY -= 1;
-		        break;
-		case 7: currentX -= 1;
-		        currentY += 2;
-		        break;
-		case 8: currentX -= 1;
-		        currentY -= 2;
-		        break;
-				}
-		moves++;
+		if (isHome()) {
+			this.current = this.current.offset(1,  2);
+			positions.add(this.current);
+			return this.current;
+		} else {
+			return this.current;
+		}
 		
 	}
 	
-	public int howManyToStart() {
-		return moves;
+	public boolean isHome() {
+		return current.equals(home);
 	}
 	
-	public String getPosition() {
-		return currentX + ", " + currentY;
+	public Location goHome() {
+		
+		this.current = this.current.offset(2, -1);
+		positions.add(this.current);
+		this.current = this.current.offset(-1, -2);
+		positions.add(this.current);
+		this.current = this.current.offset(-2, 1);
+		positions.add(this.current);
+		
+		return this.current;
 	}
 	
-	public String getStart() {
-		return startXPosition + ", " + startYPosition;
+	public Location getPosition() {
+		return this.current;
+	}
+	
+	
+	public Location getStart() {
+		return this.home;
 	}
 }
