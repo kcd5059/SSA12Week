@@ -1,9 +1,10 @@
 package com.tiy.ssa.weekone.assignmentthree;
 
 public class PigLatin {
-	public String str;
+	public final String str;
 	
 	public PigLatin(String str) {
+		// "this" is used to denote an instance variable, not necessary, but helpful
 		this.str = str;
 	}
 	
@@ -11,7 +12,7 @@ public class PigLatin {
 		
 		// Split the string into an array with one word per index
 		String[] words = str.split(" ");
-		String vowels = "aeiou";
+		final String vowels = "aeiou";
 		String translated = "";
 		
 		// Translate each word in the words array

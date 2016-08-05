@@ -18,11 +18,14 @@ public class MaybePalindromeTests {
 		assertEquals(true, new MaybePalindrome("a").isPalindrome());
 		assertEquals(false, new MaybePalindrome("ab").isPalindrome());
 		assertEquals(false, new MaybePalindrome("abc").isPalindrome());
+		assertEquals(true, new MaybePalindrome("Eve").isPalindrome());
 	}
 	
 	@Test
 	public void reportResultTests() {
 		assertEquals("racecar is a palindrome.", new MaybePalindrome("racecar").reportResult());
 		assertEquals("kitty is not a palindrome.", new MaybePalindrome("kitty").reportResult());
+		assertEquals("Eve is a palindrome.", new MaybePalindrome("Eve").reportResult());
+		
 	}
 }
