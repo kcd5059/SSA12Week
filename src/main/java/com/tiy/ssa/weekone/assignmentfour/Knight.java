@@ -1,12 +1,13 @@
 package com.tiy.ssa.weekone.assignmentfour;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Knight {
 
     final Location home;
     Location current;
-    ArrayList<Location> positions = new ArrayList<Location>();
+    List<Location> positions = new ArrayList<Location>();
 
     public Knight(Location home) {
         this.current = this.home = home;
