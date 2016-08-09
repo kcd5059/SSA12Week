@@ -59,7 +59,7 @@ public class Lists {
                
                 if ( strArray[j].length() < strArray[j + 1].length() ) {
                     temp = strArray[j];
-                    strArray[j] = strArray[ j+1 ];
+                    strArray[j] = strArray[j + 1];
                     strArray[j + 1] = temp;
                     swap = true;
                 } 
