@@ -37,7 +37,7 @@ public class WordCount
     */
     public int count(String word)
     {
-        return wordBank.get(word);
+        return wordBank.getOrDefault(word, 0);
     }
 
     /**

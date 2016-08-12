@@ -30,7 +30,7 @@ public class WordCountTests
     }
     
     @Test
-    public void addWordTest() 
+    public void addWordTests() 
     {
         assertEquals(7, wordCount.count("GO"));
         assertEquals(4, wordCount.count("CONTENT"));
